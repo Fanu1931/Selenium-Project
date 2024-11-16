@@ -1,0 +1,141 @@
+Kushi Travels Automation Testing
+This repository contains an automation suite built with Selenium, TestNG, and Maven to automate the flows of Booking Local Taxi, Outstation Taxi, and Airport Services for the Kushi Travels website. The suite includes automation for selecting cities, date, duration, and validating the search results.
+
+Table of Contents
+Project Setup
+How to Run the Tests
+Test Framework
+Directory Structure
+Reporting
+Property File
+GitHub Repository Structure
+Contributing
+Project Setup
+Prerequisites
+Java 8 or higher
+Maven
+Git
+Any modern browser (Chrome, Firefox, etc.)
+Selenium WebDriver
+TestNG
+Extent Reports (for test reporting)
+Steps to Set Up
+Clone the Repository
+
+Clone the repository to your local machine:
+
+bash
+Copy code
+git clone https://github.com/your-username/kushi-travels-automation.git
+cd kushi-travels-automation
+Install Dependencies
+
+This project uses Maven for dependency management. To install the necessary dependencies, run the following command:
+
+bash
+Copy code
+mvn clean install
+Set Up Browser Driver
+
+Download the appropriate WebDriver (e.g., ChromeDriver for Chrome) and place it in the src/main/resources/drivers folder.
+
+How to Run the Tests
+To run the tests using Maven, execute the following command:
+
+bash
+Copy code
+mvn clean test
+You can also specify specific tests or groups using TestNG options if necessary.
+
+For example, to run only the local taxi booking tests:
+
+bash
+Copy code
+mvn -Dtest=LocalTaxiBookingTest test
+Test Framework
+This project is structured using the Page Object Model (POM) design pattern. The automation flow is separated into different page objects representing different web pages. The tests are written using TestNG, with Assertions to validate each step and Waits for dynamic elements.
+
+Key Components:
+
+Page Objects: Represent pages and actions on the website.
+TestNG Tests: Contain the test scenarios for taxi bookings.
+WebDriver: For browser automation.
+Property File: Holds environment configurations like URLs.
+Extent Reports: To generate detailed test reports.
+Directory Structure
+plaintext
+Copy code
+kushi-travels-automation/
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   ├── pageobjects/
+│   │   │   │   ├── LocalTaxiPage.java
+│   │   │   │   ├── OutstationTaxiPage.java
+│   │   │   │   ├── AirportServicesPage.java
+│   │   ├── resources/
+│   │   │   ├── drivers/
+│   │   │   │   ├── chromedriver.exe
+│   │   │   ├── config.properties
+├── src/test/java/
+│   ├── tests/
+│   │   ├── LocalTaxiBookingTest.java
+│   │   ├── OutstationTaxiBookingTest.java
+│   │   ├── AirportServicesTest.java
+│   ├── testng.xml
+├── pom.xml
+├── README.md
+Explanation
+pageobjects/: Contains classes that represent the individual pages on the website.
+tests/: Contains TestNG test classes, where the actual test scenarios are written.
+resources/: Holds configuration files (like the config.properties for URL configurations) and the browser driver binaries.
+testng.xml: TestNG configuration file for test execution.
+Reporting
+Extent Reports
+Extent Reports are generated after each test run to provide detailed feedback on test execution. The reports can be found in the following folder:
+
+plaintext
+Copy code
+target/extent-reports/
+Open the index.html file in a browser to view the detailed report.
+
+Property File
+config.properties
+Create a config.properties file in the src/main/resources directory with the following content:
+
+properties
+Copy code
+url = https://kushitravels.com/index.php?cid=4
+browser = chrome
+This file contains configuration details like the website URL and the browser to use for testing. You can add more properties as needed.
+
+GitHub Repository Structure
+When you push your project to a GitHub repository, ensure that you have the following structure:
+
+plaintext
+Copy code
+kushi-travels-automation/
+├── .gitignore
+├── pom.xml
+├── src/
+├── README.md
+└── testng.xml
+Make sure to add a .gitignore file to ignore unnecessary files and folders (like target/ and IDE-specific files).
+
+Example .gitignore
+plaintext
+Copy code
+target/
+.idea/
+*.log
+*.iml
+Contributing
+Fork the repository.
+Create a new branch (git checkout -b feature/your-feature-name).
+Make your changes.
+Commit your changes (git commit -m 'Add new feature').
+Push to your branch (git push origin feature/your-feature-name).
+Create a new pull request.
+
+End of README
+This README.md file provides comprehensive documentation for setting up and running the project. You can add additional sections as needed based on your project's requirements.
